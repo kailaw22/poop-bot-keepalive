@@ -1,0 +1,13 @@
+name: Keep Poop Bot Alive
+
+on:
+  schedule:
+    - cron: '*/20 * * * *'  # 每 20 分鐘一次
+  workflow_dispatch:        # 可手動觸發測試
+
+jobs:
+  ping-keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl to Render Keepalive
+        run: curl -s https://poop-tracker-bot.onrender.com//keepalive
